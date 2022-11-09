@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AnnualTask extends Task{
-    public AnnualTask(String name, String description, Type type, LocalDateTime taskDateTime) {
+    public AnnualTask(String name, String description, String type, LocalDateTime taskDateTime) {
         super(name, description, type, taskDateTime);
     }
 
@@ -14,6 +14,6 @@ public class AnnualTask extends Task{
 
     @Override
     public String getTaskRepeat() {
-        return null;
+        return "Ежегодная";
     }
 }

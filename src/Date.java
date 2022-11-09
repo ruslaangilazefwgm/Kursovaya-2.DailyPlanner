@@ -6,12 +6,12 @@ import java.util.Collection;
 public class Date {
     public static void main(String[] args) {
         SingleTask task1 = new SingleTask("task1", "task1",
-                Task.Type.PERSONAL,  LocalDateTime.of(2022,11,6,11,30));
-        SingleTask task2 = new SingleTask("task2", "task2", Task.Type.PERSONAL,
+                "Личная",  LocalDateTime.of(2022,11,6,11,30));
+        SingleTask task2 = new SingleTask("task2", "task2", "Личная",
                  LocalDateTime.of(2022,11,7,11,30));
-        DailyTask task3 = new DailyTask("task3", "task3", Task.Type.WORKING,
+        DailyTask task3 = new DailyTask("task3", "task3", "Личная",
                  LocalDateTime.of(2022,12,6,11,30));
-        DailyTask task4= new DailyTask("task4", "task4", Task.Type.WORKING,
+        DailyTask task4= new DailyTask("task4", "task4", "Личная",
                  LocalDateTime.of(2022,12,6,11,30));
         TasksMap tasksMap = new TasksMap();
         tasksMap.addTask(task1);

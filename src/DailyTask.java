@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class DailyTask extends Task{
-    public DailyTask(String name, String description, Type type, LocalDateTime taskDateTime) {
+    public DailyTask(String name, String description, String type, LocalDateTime taskDateTime) {
         super(name, description, type, taskDateTime);
     }
 

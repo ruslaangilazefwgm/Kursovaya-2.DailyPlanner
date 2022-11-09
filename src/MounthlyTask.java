@@ -1,8 +1,8 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class MounthlyTask extends Task{
-    public MounthlyTask(String name, String description, Type type, LocalDateTime taskDateTime) {
+public class MounthlyTask extends Task {
+    public MounthlyTask(String name, String description, String type, LocalDateTime taskDateTime) {
         super(name, description, type, taskDateTime);
     }
 
@@ -14,6 +14,6 @@ public class MounthlyTask extends Task{
 
     @Override
     public String getTaskRepeat() {
-        return null;
+        return "Ежемесячная";
     }
 }

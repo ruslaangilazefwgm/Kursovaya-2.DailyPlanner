@@ -4,17 +4,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public abstract class Task {
-    public enum Type {
-        PERSONAL, WORKING
-    }
+    private String type;
     private String name;
     private String description;
-    private Type type;
-
     private final LocalDateTime taskDateTime;
     private  int id;
     private static int counter = 0;
-    public Task(String name, String description, Type type, LocalDateTime taskDateTime ) {
+    public Task(String name, String description, String type, LocalDateTime taskDateTime ) {
         if (name != null & !name.isEmpty()) {
             this.name = name;
         } else throw new RuntimeException("Некорректно введено название");
@@ -71,11 +67,11 @@ public abstract class Task {
         this.description = description;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 

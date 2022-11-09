@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
@@ -31,6 +33,7 @@ public class Main {
             }
         }
     }
+
     private static void inputTask(Scanner scanner, TasksMap tasksMap) {
         System.out.print("Введите название задачи: ");
         String taskName = scanner.useDelimiter("\n").next();
@@ -39,12 +42,14 @@ public class Main {
         System.out.print("Введите тип задачи: ");
         String taskType = scanner.useDelimiter("\n").next();
         System.out.print("Введите дату задачи: ");
-        LocalDate.parse("yy-Mm-dd").atTime(0, 0);
-
+        scanner.useDelimiter("\n").next();
+        LocalDateTime localDateTime = LocalDate.parse("2021-11-22").atTime(12, 10);
+        new SingleTask(taskName, taskDescription, taskType, localDateTime);
     }
 
     private static void deleteTask(Scanner scanner, TasksMap tasksMap) {
         System.out.print("Введите id задачи: ");
+        tasksMap.getRemoveTask(scanner.nextInt());
         tasksMap.removeTask(scanner.nextInt());
     }
 
@@ -52,14 +57,15 @@ public class Main {
         System.out.println("Введите дату: ");
         tasksMap.getTasksForDay(LocalDate.parse("dd.MM.yy"));
     }
+
     private static void printMenu() {
         System.out.println(
                 """
-                                    1. Добавить задачу
-                                    2. Удалить задачу
-                                    3. Получить задачу на указанный день
-                                    0. Выход
-                                    """
+                        1. Добавить задачу
+                        2. Удалить задачу
+                        3. Получить задачу на указанный день
+                        0. Выход
+                        """
         );
     }
 
