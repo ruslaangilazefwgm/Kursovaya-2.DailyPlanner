@@ -9,7 +9,7 @@ public class MounthlyTask extends Task {
     @Override
     public boolean appearsIn(LocalDate date) {
         final LocalDate taskCreationDate = getTaskDateTime().toLocalDate();
-        return taskCreationDate.equals(date) || (taskCreationDate.isBefore(date));
+        return taskCreationDate.equals(date.getDayOfMonth()) || (taskCreationDate.isBefore(date));
     }
 
     @Override

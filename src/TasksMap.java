@@ -4,7 +4,7 @@ import java.util.*;
 public class TasksMap {
     private final Map<Integer, Task> tasksMap = new HashMap<>();
 
-    public void addTask(Task task) {
+    public  void addTask(Task task) {
         this.tasksMap.put(task.getId(), task);
     }
 

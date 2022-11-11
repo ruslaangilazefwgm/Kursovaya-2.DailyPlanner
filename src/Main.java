@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
@@ -32,6 +31,7 @@ public class Main {
                 }
             }
         }
+        System.out.println(tasksMap);
     }
 
     private static void inputTask(Scanner scanner, TasksMap tasksMap) {
@@ -43,9 +43,38 @@ public class Main {
         String taskType = scanner.useDelimiter("\n").next();
         System.out.print("Введите дату задачи: ");
         scanner.useDelimiter("\n").next();
-        LocalDateTime localDateTime = LocalDate.parse("2021-11-22").atTime(12, 10);
-        new SingleTask(taskName, taskDescription, taskType, localDateTime);
+        LocalDateTime localDateTime = LocalDate.parse("dd-MM-yyyy").atTime(12, 10);
+        tasksMap.addTask(changeRepeat(scanner, taskName, taskDescription, taskType, localDateTime));
     }
+
+    public static Task changeRepeat(Scanner scanner, String taskName, String taskDescription, String taskType, LocalDateTime localDateTime) {
+        System.out.println("Введите тип повтора задачи: ");
+        System.out.println("1 - однократная");
+        System.out.println("2 - ежедневная");
+        System.out.println("3 - еженедельная");
+        System.out.println("4 - ежемесячная");
+        System.out.println("5 - ежегодная");
+        int typeSet = scanner.nextInt();
+        switch (typeSet) {
+            case 1:
+                new SingleTask(taskName, taskDescription, taskType, localDateTime);
+                break;
+            case 2:
+                new DailyTask(taskName, taskDescription, taskType, localDateTime);
+                break;
+            case 3:
+                new WeeklyTask(taskName, taskDescription, taskType, localDateTime);
+                break;
+            case 4:
+                new MounthlyTask(taskName, taskDescription, taskType, localDateTime);
+                break;
+            case 5:
+                new AnnualTask(taskName, taskDescription, taskType, localDateTime);
+                break;
+        }
+        return null;
+    }
+
 
     private static void deleteTask(Scanner scanner, TasksMap tasksMap) {
         System.out.print("Введите id задачи: ");
@@ -59,14 +88,12 @@ public class Main {
     }
 
     private static void printMenu() {
-        System.out.println(
-                """
-                        1. Добавить задачу
-                        2. Удалить задачу
-                        3. Получить задачу на указанный день
-                        0. Выход
-                        """
-        );
+        System.out.println("""
+                1. Добавить задачу
+                2. Удалить задачу
+                3. Получить задачу на указанный день
+                0. Выход
+                """);
     }
 
 }

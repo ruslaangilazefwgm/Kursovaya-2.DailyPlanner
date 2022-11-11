@@ -9,7 +9,7 @@ public class WeeklyTask extends Task{
     @Override
     public boolean appearsIn(LocalDate date) {
         final LocalDate taskCreationDate = getTaskDateTime().toLocalDate();
-        return taskCreationDate.equals(date) || (taskCreationDate.isBefore(date));
+        return taskCreationDate.equals(date.getDayOfWeek()) || (taskCreationDate.isBefore(date));
     }
 
     @Override

@@ -8,9 +8,10 @@ public abstract class Task {
     private String name;
     private String description;
     private final LocalDateTime taskDateTime;
-    private  int id;
+    private int id;
     private static int counter = 0;
-    public Task(String name, String description, String type, LocalDateTime taskDateTime ) {
+
+    public Task(String name, String description, String type, LocalDateTime taskDateTime) {
         if (name != null & !name.isEmpty()) {
             this.name = name;
         } else throw new RuntimeException("Некорректно введено название");
@@ -78,6 +79,7 @@ public abstract class Task {
     public LocalDateTime getTaskDateTime() {
         return taskDateTime;
     }
+
     public int getId() {
         return id;
     }
