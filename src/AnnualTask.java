@@ -9,7 +9,7 @@ public class AnnualTask extends Task{
     @Override
     public boolean appearsIn(LocalDate date) {
         final LocalDate taskCreationDate = getTaskDateTime().toLocalDate();
-        return taskCreationDate.equals(date.getDayOfYear()) || (taskCreationDate.isBefore(date));
+        return taskCreationDate.getDayOfYear() == date.getDayOfYear() || (taskCreationDate.isBefore(date));
     }
 
     @Override

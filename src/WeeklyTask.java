@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class WeeklyTask extends Task{
+public class WeeklyTask extends Task {
     public WeeklyTask(String name, String description, String type, LocalDateTime taskDateTime) {
         super(name, description, type, taskDateTime);
     }
@@ -9,7 +9,7 @@ public class WeeklyTask extends Task{
     @Override
     public boolean appearsIn(LocalDate date) {
         final LocalDate taskCreationDate = getTaskDateTime().toLocalDate();
-        return taskCreationDate.equals(date.getDayOfWeek()) || (taskCreationDate.isBefore(date));
+        return taskCreationDate.getDayOfWeek() == date.getDayOfWeek() || (taskCreationDate.isBefore(date));
     }
 
     @Override
